@@ -14,7 +14,7 @@ This is a weather dashboard that displays the temperature, wind speed, humidity,
 
 ## Screenshot
 
-![A screenshot of the website](./images/WeatherDashboard.png)
+![A screenshot of the website](./assets/images/WeatherDashboard.png)
 
 ## Links to Application
 
