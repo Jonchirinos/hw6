@@ -71,15 +71,15 @@ function handleFormSubmit(event) {
     document.querySelector("#searchHistory").innerHTML = "";
     event.preventDefault();
     const city = document.querySelector("#searchInput").value.trim();
-    searchCities.push(city);
-    const filteredCities = searchCities.filter((city, index) => {
-        return searchCities.indexOf(city.toUpperCase()) === index;
-    });
+
+    if (searchCities.indexOf(city.toUpperCase()) == -1) {
+        searchCities.push(city.toUpperCase());
+    }
     // filteredCities.forEach((city) => {
     //     document.querySelector("#searchHistory").innerHTML += `<button data-city="${city}" class="w-100 d-block my-2 search-history">${city}</button>`;
     // });
-    localStorage.setItem("cityHistory", JSON.stringify(filteredCities));
-    displayHistory(filteredCities);
+    localStorage.setItem("cityHistory", JSON.stringify(searchCities));
+    displayHistory(searchCities);
     handleCoords(city);
 }
 
