@@ -43,7 +43,7 @@ function displayCurrentWeather(currentCityData, cityName) {
     let uvColor = uvColorChange(currentCityData.uvi);
     // todo: add Wind, humidity, UV index DONT FORGET UNITS
     // create dynamic bg for uv index by adding class based on value of uv
-    document.querySelector("#currentWeather").innerHTML = `<h2>${cityName} ${moment.unix(currentCityData.dt).format("MMM Do YY")} <img src="${weatherIcon}"></h2> <div>Temp: ${currentCityData.temp} \xB0F</div> <div>Wind: ${currentCityData.wind_speed} MPH</div> <div>Humidity: ${currentCityData.humidity}</div> <div class="mb-5"> UV Index: <span class="${uvColor}">${currentCityData.uvi}</span></div>`;
+    document.querySelector("#currentWeather").innerHTML = `<h2>${cityName} ${moment.unix(currentCityData.dt).format("MMM Do YY")} <img src="${weatherIcon}"></h2> <div>Temp: ${currentCityData.temp} \xB0F</div> <div>Wind: ${currentCityData.wind_speed} MPH</div> <div>Humidity: ${currentCityData.humidity} %</div> <div class="mb-5"> UV Index: <span class="${uvColor}">${currentCityData.uvi}</span></div>`;
 }
 
 function uvColorChange(uvIndex) {
@@ -63,7 +63,7 @@ function displayFiveDayWeather(fiveDayCityData) {
     cityData.forEach((day) => {
         let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
         // todo: temp, wind, humidity DONT FORGET UNITS ()
-        document.querySelector("#fiveDayWeather").innerHTML += `<Temp: class="col-sm m-1 p-2 card"><div> ${moment.unix(day.dt).format("MMM Do YY")}</div> <div><img src="${weatherIcon}"></div>Temp: ${day.temp.day} \xB0F </div> <div>Wind: ${day.wind_speed} MPH </div> <div>Humidity: ${day.humidity}% </div></div>`;
+        document.querySelector("#fiveDayWeather").innerHTML += `<div class="col-sm m-1 p-2 card card-format"><div> ${moment.unix(day.dt).format("MMM Do YY")}</div> <div><img src="${weatherIcon}"><div>Temp: ${day.temp.day} \xB0F <br></br> Wind: ${day.wind_speed} MPH <br></br> Humidity: ${day.humidity} %</div></div></div>`;
     });
 }
 
@@ -94,6 +94,7 @@ function handleHistory(event) {
     handleCoords(city);
 }
 displayHistory(searchCities);
+localStorage.clear();
 // listeners
 // on page load, show any past cities searched
 // search for city

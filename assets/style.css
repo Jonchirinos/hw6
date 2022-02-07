@@ -35,3 +35,7 @@
     border: 2px solid;
     padding: 10px;
 }
+
+.card-format {
+    background: darkslategray;
+}
