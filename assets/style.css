@@ -1,0 +1,37 @@
+.low {
+    background-color: aquamarine;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.tt-c {
+    text-transform: capitalize;
+}
+
+.bgc-red {
+    background-color: red;
+}
+
+.bgc-green {
+    background-color: green;
+}
+
+.bgc-yellow {
+    background-color: yellow;
+}
+
+.headerGradient {
+    background: rgb(58, 106, 191);
+    background: linear-gradient(90deg, rgba(58, 106, 191, 1) 0%, rgba(37, 11, 92, 1) 100%);
+    color: white;
+}
+
+.search-history {
+    background-color: #b7b7b7;
+    color: #484848;
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 10px;
+}

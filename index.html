@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Weather Dashboard</title>
+    <!-- bootstrap -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- weather dashboard -->
+        <div class="row">
+            <h1 class="col-12 p-4 textCenter headerGradient">Weather Dashboard</h1>
+        </div>
+        <!-- left side search -->
+        <div class="row">
+            <div class="col-3 p-4">
+                <!-- search form & button -->
+                <h1 class="h4 font-weight-bold textCenter">Search Your City</h1>
+                <div class="form-group">
+                    <form id="searchForm" class="form-inline mx-auto">
+                        <input id="searchInput" class="form-control mb-2 w-100" placeholder="Type Your City Here" />
+                        <button type="submit" class="btn btn-primary btn-block w-100 mb-4">Search</button>
+                    </form>
+                    <!-- history btns -->
+                    <div id="searchHistory" class="border-top pt-2"></div>
+                </div>
+            </div>
+            <!-- forecast card columns -->
+            <div class="col-9 p-4">
+                <!-- row 1 -->
+                <div id="currentWeather" class="card m-1 p-2"></div>
+                <!-- row 2 -->
+                <h2 class="row m-1 p-2">5 day forecast</h2>
+                <!-- 5 day forecast -->
+                <!-- cards -->
+                <div id="fiveDayWeather" class="row no-gutters"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
