@@ -1,6 +1,6 @@
 // variables
 const searchCities = JSON.parse(localStorage.getItem("cityHistory")) || [];
-
+console.log(searchCities);
 // functions
 function handleCoords(searchCity) {
     // fetches API
@@ -9,6 +9,8 @@ function handleCoords(searchCity) {
     fetch(fetchUrl)
         .then(function (response) {
             if (response.ok) {
+                localStorage.setItem("cityHistory", JSON.stringify(searchCities));
+                displayHistory(searchCities);
                 return response.json();
                 // confirms user input is valid
             } else {
@@ -91,8 +93,8 @@ function handleFormSubmit(event) {
         searchCities.push(city.toUpperCase());
     }
     // saves searched history to local storage and JSON stringify's it
-    localStorage.setItem("cityHistory", JSON.stringify(searchCities));
-    displayHistory(searchCities);
+
+    // displayHistory(searchCities);
     handleCoords(city);
 }
 
