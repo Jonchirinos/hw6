@@ -9,7 +9,14 @@ function handleCoords(searchCity) {
     fetch(fetchUrl)
         .then(function (response) {
             if (response.ok) {
+                // displays search history text in string
+                document.querySelector("#searchHistory").innerHTML = "";
+                // saves search history to local storage
                 localStorage.setItem("cityHistory", JSON.stringify(searchCities));
+                if (searchCities.indexOf(searchCity.toUpperCase()) == -1) {
+                    // makes array containing searched cities Uppercase
+                    searchCities.push(searchCity.toUpperCase());
+                }
                 displayHistory(searchCities);
                 return response.json();
                 // confirms user input is valid
@@ -82,18 +89,9 @@ function displayFiveDayWeather(fiveDayCityData) {
 }
 // allows user to input data and for that data to pulled from API
 function handleFormSubmit(event) {
-    // creates a history button for each searched city
-    document.querySelector("#searchHistory").innerHTML = "";
     event.preventDefault();
     // creates element
     const city = document.querySelector("#searchInput").value.trim();
-    // Populate array of searched cities
-    if (searchCities.indexOf(city.toUpperCase()) == -1) {
-        // makes array containing searched cities Uppercase
-        searchCities.push(city.toUpperCase());
-    }
-    // saves searched history to local storage and JSON stringify's it
-
     // displayHistory(searchCities);
     handleCoords(city);
 }
