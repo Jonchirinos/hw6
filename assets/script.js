@@ -47,7 +47,7 @@ function handleCurrentWeather(coordinates, city) {
 // function for displaying current weather
 function displayCurrentWeather(currentCityData, cityName) {
     // weather Icon that can dynamically change based on weather
-    let weatherIcon = `http://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
+    let weatherIcon = `https://openweathermap.org/img/wn/${currentCityData.weather[0].icon}.png`;
     let uvColor = uvColorChange(currentCityData.uvi);
     // todo: add Wind, humidity, UV index DONT FORGET UNITS
     // create dynamic bg for uv index by adding class based on value of uv
@@ -73,7 +73,7 @@ function displayFiveDayWeather(fiveDayCityData) {
     // displays cards for the 5day weather
     cityData.forEach((day) => {
         // creates icons for the 5days
-        let weatherIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+        let weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
         // appends data to the 5cards for forecast
         document.querySelector("#fiveDayWeather").innerHTML += `<div class="col-sm m-1 p-2 card card-format"><div> ${moment.unix(day.dt).format("MMM Do YY")}</div> <div><img src="${weatherIcon}"><div>Temp: ${day.temp.day} \xB0F <br></br> Wind: ${day.wind_speed} MPH <br></br> Humidity: ${day.humidity} %</div></div></div>`;
     });
